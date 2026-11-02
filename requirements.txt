@@ -1,0 +1,9 @@
+# Calculadora e simulações
+numpy>=1.24
+matplotlib>=3.7
+# Renderização (opcional: make render)
+pillow>=10.0
+gerbonara>=1.2
+cadquery-ocp>=7.7
+# Visualizador 3D: Playwright (renders estáticos)
+playwright>=1.40

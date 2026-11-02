@@ -1,0 +1,28 @@
+* 02 — Feed-forward de linha: divisor e filtro de 2 polos VRMS (valores da placa)
+* VAC_RECT = |Vpk·sin(2π·60·t)| (ponte retificadora da placa de potência)
+.include models/devices.lib
+.param vac=230
+B1 vac_rect 0 V = abs({vac}*sqrt(2)*sin(2*pi*60*time))
+R19 vac_rect vrms_m 470k
+R22 vrms_m vrms_f 470k
+C10 vrms_f 0 470n
+R31 vrms_f vrms 100k
+R45 vrms 0 13k
+C17 vrms 0 2.2u
+* ramo IAC (entrada de corrente do CI ≈ terra virtual)
+R23 vac_rect iac_m 470k
+R32 iac_m iac 470k
+Viac iac 0 0
+.tran 100u 2.0 0 100u
+.control
+foreach v 90 115 230 264
+  alterparam vac = $v
+  reset
+  run
+  wrdata out/02_vrms_$v v(vrms) i(Viac)
+  meas tran vrms_avg avg v(vrms) from=1.8 to=2.0
+  meas tran vrms_pp pp v(vrms) from=1.8 to=2.0
+  meas tran iac_pk max i(Viac) from=1.8 to=2.0
+end
+.endc
+.end

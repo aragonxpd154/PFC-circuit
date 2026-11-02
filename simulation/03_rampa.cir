@@ -1,0 +1,31 @@
+* 03 — Compensação de rampa + limite de corrente PWM (Q4, R35, C15, R36, D2, R40, R29, C21)
+* PWM_OUT: 0/15 V, 84 kHz, D = 40 %. PWM_CS: rampa de corrente do primário no shunt
+* (0,25 V → 0,65 V durante o ton), zerada no toff.
+.include models/devices.lib
+.param f=84k d=0.40
+.param T={1/f} ton={d/f}
+VCC vcc 0 15
+VPWM pwm_out 0 PULSE(0 15 0 20n 20n {ton} {T})
+VCS pwm_cs 0 PULSE(0 0 0 1n 1n {ton} {T})
+Bcs pwm_cs_r 0 V = V(pwm_out) > 7.5 ? 0.25 + 0.40*((time - floor(time*{f})/{f})/{ton}) : 0
+* rede da placa
+R35 vcc slope_ramp 22k
+C15 slope_ramp 0 1n
+R36 slope_ramp d2_a 1k
+D2 d2_a pwm_out LL4148
+Q4 vcc slope_ramp slope_e MMBT3904
+R40 slope_e ilimit 22k
+R29 pwm_cs_r ilimit 1k
+C21 ilimit 0 470p
+* referência sem compensação (mesma entrada, sem R40)
+R29b pwm_cs_r ilim_nc 1k
+C21b ilim_nc 0 470p
+.tran 5n 120u 60u 5n
+.control
+run
+wrdata out/03_rampa.dat v(pwm_out) v(slope_ramp) v(ilimit) v(ilim_nc) v(pwm_cs_r)
+meas tran ramp_pk max v(slope_ramp)
+meas tran ilim_pk max v(ilimit)
+meas tran ilim_nc_pk max v(ilim_nc)
+.endc
+.end

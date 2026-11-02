@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+  * { margin:0; box-sizing:border-box; }
+  body { width:1600px; height:640px; overflow:hidden; font-family:"Inter Display","Inter",sans-serif; color:#eef3ee;
+    background: radial-gradient(900px 520px at 78% 55%, #1e3a2b 0%, rgba(14,20,17,0) 70%),
+                linear-gradient(120deg, #0b100d 0%, #111a15 55%, #0d1410 100%); position:relative; }
+  .grid { position:absolute; inset:0; opacity:.07;
+    background-image: linear-gradient(#9fd3b0 1px, transparent 1px), linear-gradient(90deg, #9fd3b0 1px, transparent 1px);
+    background-size: 32px 32px; mask-image: linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.2)); }
+  .trace { position:absolute; left:0; top:0; }
+  .txt { position:absolute; left:84px; top:96px; width:720px; }
+  .kicker { font:600 18px/1 "Inter"; letter-spacing:.24em; text-transform:uppercase; color:#d6ac48; }
+  h1 { font-weight:700; font-size:92px; letter-spacing:-.025em; line-height:1; margin-top:22px; }
+  h1 span { color:#7fd3a0; }
+  p { font:400 25px/1.45 "Inter"; color:#b8c6bc; margin-top:22px; width:640px; }
+  .chips { display:flex; gap:10px; margin-top:34px; flex-wrap:wrap; width:680px; }
+  .chip { font:500 16px/1 "Inter"; color:#d9e4dc; padding:10px 14px; border:1px solid #2b3d33; border-radius:999px; background:rgba(255,255,255,.03); }
+  .chip b { color:#d6ac48; font-weight:600; }
+  img { position:absolute; right:30px; top:70px; width:860px; filter: drop-shadow(0 30px 40px rgba(0,0,0,.55)); }
+</style></head><body>
+<div class="grid"></div>
+<svg class="trace" width="1600" height="640"><g fill="none" stroke="#d6ac48" stroke-opacity=".18" stroke-width="2">
+  <path d="M0 560 H420 l40 -40 H700"/><path d="M0 590 H520 l30 -30 H760"/><circle cx="700" cy="520" r="5"/><circle cx="760" cy="560" r="5"/></g></svg>
+<div class="txt">
+  <div class="kicker">Power electronics · KiCad · open hardware</div>
+  <h1>PFC<span>-</span>circuit</h1>
+  <p>Placa de controle <b style="color:#eef3ee;font-weight:600">PFC + PWM com CM6800G</b> — engenharia reversa de uma fonte ATX, remodelada em KiCad com layout roteado, modelo 3D, simulações e bancada de testes.</p>
+  <div class="chips">
+    <span class="chip"><b>CM6800G</b> · PDIP-16</span><span class="chip">84 kHz</span>
+    <span class="chip">380 V bus</span><span class="chip">2 camadas · ENIG</span><span class="chip">DRC 0</span><span class="chip">GPL-3.0</span>
+  </div>
+</div>
+<img src="../../../docs/images/psh-card1-3d.png">
+</body></html>

@@ -1,0 +1,23 @@
+* 04 — Driver de gate: R28 30 Ω (turn-on) ∥ LL4148 D39 (turn-off) → MOSFET (Rg_int 2 Ω, Ciss 2,2 nF)
+* Driver do CM6800 modelado como fonte totem-pole com 6 Ω de resistência de saída.
+.include models/devices.lib
+VDRV drv 0 PULSE(0 15 1u 10n 10n 4u 12u)
+Rdrv drv pwm_out 6
+R28 pwm_out gate_pin 30
+D39 gate_pin pwm_out LL4148
+Rgi gate_pin gate 2
+Ciss gate 0 2.2n
+* referência: somente resistor (sem diodo de turn-off)
+Rdrvb drv out_b 6
+R28b out_b gate_pin_b 30
+Rgib gate_pin_b gate_b 2
+Cissb gate_b 0 2.2n
+.tran 1n 12u 0 1n
+.control
+run
+wrdata out/04_gate.dat v(drv) v(gate) v(gate_b)
+meas tran tr trig v(gate) val=1.5 rise=1 targ v(gate) val=13.5 rise=1
+meas tran tf trig v(gate) val=13.5 fall=1 targ v(gate) val=1.5 fall=1
+meas tran tf_b trig v(gate_b) val=13.5 fall=1 targ v(gate_b) val=1.5 fall=1
+.endc
+.end

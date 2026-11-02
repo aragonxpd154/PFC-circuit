@@ -1,0 +1,58 @@
+Referência,Valor,Footprint,Função,Redes (pino:rede),Nota
+C5,470p,C_0805_2012Metric,Polo de alta frequência da malha de corrente,1:VREF 2:IEAO,sugerido
+C6,10n,C_0805_2012Metric,"Zero da malha de corrente (fz ≈ 1,6 kHz)",1:IEAO_Z 2:IEAO,sugerido
+C7,1u,C_0805_2012Metric,"Desacoplamento da referência de 7,5 V",1:VREF 2:GND,sugerido
+C8,1n,C_0805_2012Metric,Filtro de ruído em VFB,1:VFB 2:GND,sugerido
+C9,100n,C_0805_2012Metric,Desacoplamento HF de VCC junto ao CI,1:VCC_HF 2:GND,sugerido
+C10,470n,C_0805_2012Metric,Filtro VRMS — 1º polo,1:VRMS_F 2:GND,sugerido
+C13,1n,C_0805_2012Metric,Filtro RC do sensor de corrente PFC,1:ISENSE 2:GND,sugerido
+C14,33u/50V,CP_Elec_6.3x5.4,Capacitor do soft-start do PWM (eletrolítico SMD),1:SS 2:GND,
+C15,1n,C_0805_2012Metric,Capacitor da rampa,1:SLOPE_RAMP 2:GND,sugerido
+C16,10u/50V,CP_Elec_5x5.4,Reservatório de VCC (eletrolítico SMD),1:VCC 2:GND,
+C17,2u2,C_0805_2012Metric,Filtro VRMS — 2º polo,1:VRMS 2:GND,sugerido
+C18,100n,C_0805_2012Metric,Rede RC de VDC,1:VDC_Z 2:GND,sugerido
+C19,1n,C_0805_2012Metric,Filtro de ruído em VDC,1:VDC 2:GND,sugerido
+C20,1n,C_0805_2012Metric,CT do oscilador (C0G/NP0),1:RAMP1 2:GND,
+C21,470p,C_0805_2012Metric,Filtro RC / blanking do sensor PWM,1:ILIMIT 2:GND,sugerido
+C22,100n,C_0805_2012Metric,"Zero da malha de tensão (fz ≈ 3,7 Hz)",1:VEAO_Z 2:GND,sugerido
+C23,10n,C_0805_2012Metric,Polo da malha de tensão,1:VEAO 2:GND,sugerido
+C24,1u,C_0805_2012Metric,Desacoplamento de VCC,1:VCC 2:GND,sugerido
+D1,LL4148,D_MiniMELF,Diodo de sinal rápido 100 V / 200 mA (MiniMELF),1:ISENSE 2:D1D3,
+D2,LL4148,D_MiniMELF,Diodo de sinal rápido 100 V / 200 mA (MiniMELF),1:PWM_OUT 2:D2_A,
+D3,LL4148,D_MiniMELF,Diodo de sinal rápido 100 V / 200 mA (MiniMELF),1:D1D3 2:GND,
+D4,LL4148,D_MiniMELF,Diodo de sinal rápido 100 V / 200 mA (MiniMELF),1:PFC_OUT 2:GND,
+D38,LL4148,D_MiniMELF,Diodo de sinal rápido 100 V / 200 mA (MiniMELF),1:PFC_OUT 2:PFC_GATE,
+D39,LL4148,D_MiniMELF,Diodo de sinal rápido 100 V / 200 mA (MiniMELF),1:PWM_OUT 2:PWM_GATE,
+J1,PSH-BUS,PinHeader_1x10_P2.54mm_Horizontal,"Barra de pinos 1×10, 2,54 mm, 90° (encaixe na placa de potência)",1:PFC_CS 2:VDC 3:NC 4:VAC_RECT 5:VCC 6:VFB 7:PFC_GATE 8:PWM_CS 9:GND 10:PWM_GATE,
+JP1,RAMP2-ILIMIT,SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm,Liga RAMP2 ao sensor (modo corrente). Novo no REV 1.0 — ver README,1:RAMP2 2:ILIMIT,REV 1.0
+Q4,MMBT3904,SOT-23,NPN seguidor de emissor (buffer da rampa),1:SLOPE_RAMP 2:SLOPE_E 3:VCC,
+R18,100,R_0805_2012Metric,Filtro RC do sensor de corrente PFC,1:ISENSE 2:PFC_CS,
+R19,470k,R_1206_3216Metric,Divisor VRMS — alta tensão (1206),1:VAC_RECT 2:VRMS_M,
+R22,470k,R_1206_3216Metric,Divisor VRMS (1206),1:VRMS_M 2:VRMS_F,
+R23,470k,R_1206_3216Metric,Programação de IAC — alta tensão (1206),1:IAC_M 2:VAC_RECT,
+R25,10k,R_0805_2012Metric,Pull-up de VDC (optoacoplador puxa para baixo),1:VREF 2:VDC,
+R26,21k5,R_0805_2012Metric,RT do oscilador,1:VREF 2:RAMP1,
+R27,10k,R_0805_2012Metric,Zero da malha de corrente,1:VREF 2:IEAO_Z,
+R28,30,R_0805_2012Metric,Resistor de gate PWM (turn-on),1:PWM_OUT 2:PWM_GATE,
+R29,1k,R_0805_2012Metric,Filtro RC do sensor de corrente PWM,1:PWM_CS 2:ILIMIT,
+R30,0,R_0805_2012Metric,Jumper 0 Ω (opção de RC em VCC),1:VCC 2:VCC_HF,
+R31,100k,R_0805_2012Metric,Divisor/filtro VRMS — 2º polo,1:VRMS_F 2:VRMS,
+R32,470k,R_1206_3216Metric,Programação de IAC (2 × 470k ⇒ 940 kΩ),1:IAC 2:IAC_M,
+R35,22k,R_0805_2012Metric,Carga da rampa (durante o ton do PWM),1:VCC 2:SLOPE_RAMP,
+R36,1k,R_0805_2012Metric,Descarga da rampa (PWM em nível baixo),1:SLOPE_RAMP 2:D2_A,
+R40,22k,R_0805_2012Metric,Injeção da rampa de compensação,1:ILIMIT 2:SLOPE_E,
+R43,820,R_0805_2012Metric,Rede RC de VDC,1:VDC 2:VDC_Z,
+R44,430k,R_0805_2012Metric,Zero da malha de tensão,1:VEAO 2:VEAO_Z,
+R45,13k,R_0805_2012Metric,Divisor VRMS — base,1:VRMS 2:GND,
+R46,15k,R_0805_2012Metric,"Divisor de VDC (VDC máx ≈ 4,5 V)",1:VDC 2:GND,
+R47,5k1,R_0805_2012Metric,Base do divisor do barramento de 380 V,1:VFB 2:GND,
+R137,30,R_0805_2012Metric,Resistor de gate PFC (turn-on),1:PFC_OUT 2:PFC_GATE,
+TP1,VREF,TestPoint_Pad_D1.5mm,"Ponto de teste SMD Ø1,5 mm",1:VREF,REV 1.0
+TP2,VCC,TestPoint_Pad_D1.5mm,"Ponto de teste SMD Ø1,5 mm",1:VCC,REV 1.0
+TP3,GND,TestPoint_Pad_D1.5mm,"Ponto de teste SMD Ø1,5 mm",1:GND,REV 1.0
+TP4,RAMP1,TestPoint_Pad_D1.5mm,"Ponto de teste SMD Ø1,5 mm",1:RAMP1,REV 1.0
+TP5,SS,TestPoint_Pad_D1.5mm,"Ponto de teste SMD Ø1,5 mm",1:SS,REV 1.0
+TP6,VEAO,TestPoint_Pad_D1.5mm,"Ponto de teste SMD Ø1,5 mm",1:VEAO,REV 1.0
+TP7,IEAO,TestPoint_Pad_D1.5mm,"Ponto de teste SMD Ø1,5 mm",1:IEAO,REV 1.0
+TP8,VRMS,TestPoint_Pad_D1.5mm,"Ponto de teste SMD Ø1,5 mm",1:VRMS,REV 1.0
+U4,CM6800G,DIP-16_W7.62mm_Socket,"Controlador combo PFC/PWM, PDIP-16 (soquete torneado)",1:IEAO 2:IAC 3:ISENSE 4:VRMS 5:SS 6:VDC 7:RAMP1 8:RAMP2 9:ILIMIT 10:GND 11:PWM_OUT 12:PFC_OUT 13:VCC 14:VREF 15:VFB 16:VEAO,

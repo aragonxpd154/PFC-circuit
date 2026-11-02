@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "PFC")(type "KiCad")(uri "${KIPRJMOD}/../lib/PFC.kicad_sym")(options "")(descr "Símbolos do projeto PFC-circuit (CM6800G)"))
+)

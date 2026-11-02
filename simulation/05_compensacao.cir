@@ -1,0 +1,18 @@
+* 05 — Impedância das redes de compensação (saídas OTA: IEAO e VEAO)
+* |Z(f)| = ganho da malha por unidade de transcondutância (V/A).
+* IEAO: C5 ∥ (R27 + C6) referenciados a VREF (terra AC)
+I1 0 ieao AC 1
+C5 ieao 0 470p
+R27 ieao n1 10k
+C6 n1 0 10n
+* VEAO: C23 ∥ (R44 + C22)
+I2 0 veao AC 1
+C23 veao 0 10n
+R44 veao n2 430k
+C22 n2 0 100n
+.ac dec 50 0.1 1Meg
+.control
+run
+wrdata out/05_comp.dat vm(ieao) vm(veao) vp(ieao) vp(veao)
+.endc
+.end

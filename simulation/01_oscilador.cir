@@ -1,0 +1,23 @@
+* 01 — Oscilador RAMP1 (RT = R26 21k5, CT = C20 1n) — modelo comportamental do CM6800
+* Rampa: carga de CT por RT a partir de VREF entre 1,25 V e 3,75 V;
+* tempo morto: descarga por fonte de 2,65 mA (datasheet: tDEADTIME = 2,5 V / 2,65 mA · CT).
+.include models/devices.lib
+VREF vref 0 7.5
+R26 vref ramp1 21.5k
+C20 ramp1 0 1n IC=1.25
+* comparador com histerese (liga em 3,75 V, desliga em 1,25 V) → nó de controle "dis"
+S1 dis_src dis ramp1 0 SWHYST
+Vone dis_src 0 1
+Rdis dis 0 1Meg
+* descarga controlada: I = 2,65 mA enquanto dis = 1 V
+Bdis ramp1 0 I = V(dis) * 2.65m
+.tran 10n 120u 0 10n UIC
+.control
+run
+wrdata out/01_oscilador.dat v(ramp1) v(dis)
+meas tran t1 when v(ramp1)=3.0 rise=4
+meas tran t2 when v(ramp1)=3.0 rise=5
+let fosc = 1/(t2-t1)
+print fosc
+.endc
+.end

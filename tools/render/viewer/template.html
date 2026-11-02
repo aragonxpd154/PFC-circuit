@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PSH CARD1 · Visualizador 3D</title>
+<style>
+  :root { --bg:#0e1411; --panel:#151d19; --ink:#e9efe9; --muted:#93a59a; --line:#26332c; --accent:#d6ac48; }
+  * { box-sizing:border-box; margin:0; }
+  html, body { height:100%; background:radial-gradient(1200px 700px at 30% 20%, #1b2a22 0%, var(--bg) 60%); color:var(--ink);
+    font:15px/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:18px 24px; flex-wrap:wrap; }
+  h1 { font-size:17px; font-weight:650; letter-spacing:.2px; }
+  h1 small { display:block; color:var(--muted); font-weight:450; font-size:13px; margin-top:2px; }
+  nav { display:flex; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:3px; gap:2px; flex-wrap:wrap; }
+  nav button { appearance:none; border:0; background:transparent; color:var(--muted); font:inherit; font-size:13.5px;
+    padding:7px 13px; border-radius:7px; cursor:pointer; }
+  nav button:hover { color:var(--ink); }
+  nav button[aria-pressed="true"] { background:#22302a; color:var(--ink); box-shadow:inset 0 0 0 1px #2f4038; }
+  #stage { position:absolute; inset:74px 0 44px 0; }
+  footer { position:absolute; bottom:0; left:0; right:0; padding:12px 24px; color:var(--muted); font-size:12.5px;
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  footer b { color:var(--accent); font-weight:600; }
+  #loading { position:absolute; inset:0; display:grid; place-items:center; color:var(--muted); font-size:14px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>PSH CARD1 · CM6800G PFC/PWM<small>Modelo 3D gerado do KiCad — arraste para girar, role para aproximar</small></h1>
+  <nav id="views">
+    <button data-v="card" aria-pressed="true">Placa de controle</button>
+    <button data-v="card-top">Vista superior</button>
+    <button data-v="card-bottom">Face inferior</button>
+    <button data-v="jig">Bancada (JIG1)</button>
+    <button data-v="assembly">Montagem</button>
+  </nav>
+</header>
+<div id="stage"><div id="loading">Carregando modelo 3D…</div></div>
+<footer><span><b>REV 1.0</b> · 2 camadas · 1,6 mm · ENIG</span><span>github.com/aragonxpd154/PFC-circuit · GPL-3.0</span></footer>
+<script>window.BOARDS = /*BOARDS*/;</script>
+<script>/*BUNDLE*/</script>
+<script>
+(async () => {
+  const stage = document.getElementById("stage");
+  const v = await PFC3D.createViewer(stage, window.BOARDS);
+  document.getElementById("loading").remove();
+  const params = new URLSearchParams(location.search);
+  const valid = ["card", "card-top", "card-bottom", "jig", "assembly"];
+  const fromHash = () => (valid.includes(location.hash.slice(1)) ? location.hash.slice(1) : null);
+  const start = fromHash() || params.get("view") || "card";
+  const btns = [...document.querySelectorAll("#views button")];
+  const go = (name) => { v.show(name); btns.forEach(b => b.setAttribute("aria-pressed", b.dataset.v === name)); };
+  btns.forEach(b => b.addEventListener("click", () => { go(b.dataset.v); try { history.replaceState(null, "", "#" + b.dataset.v); } catch (e) {} }));
+  window.addEventListener("hashchange", () => { const h = fromHash(); if (h) go(h); });
+  go(start);
+  window.__viewer = v; window.__ready = true;
+})();
+</script>
+</body>
+</html>

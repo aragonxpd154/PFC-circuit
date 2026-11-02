@@ -1,0 +1,11 @@
+{
+  "name": "pfc-circuit-viewer",
+  "private": true,
+  "type": "module",
+  "description": "Visualizador 3D das placas PSH-CARD1 / PSH-JIG1",
+  "scripts": {
+    "build": "node build.mjs ../../.. ./node_modules",
+    "shoot": "node shoot.mjs ../../.."
+  },
+  "dependencies": { "three": "0.160.0", "esbuild": "0.20.2" }
+}

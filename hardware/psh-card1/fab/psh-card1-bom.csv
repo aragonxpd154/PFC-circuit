@@ -1,0 +1,31 @@
+Item,Qtd,Referências,Valor,Footprint,Descrição,MPN,Nota
+1,1,U4,CM6800G,DIP-16_W7.62mm_Socket,"Controlador combo PFC/PWM, PDIP-16 (soquete torneado)",CM6800GIP,
+2,1,Q4,MMBT3904,SOT-23,NPN seguidor de emissor (buffer da rampa),MMBT3904,
+3,6,D1 D2 D3 D4 D38 D39,LL4148,D_MiniMELF,Diodo de sinal rápido 100 V / 200 mA (MiniMELF),LL4148,
+4,1,R30,0,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+5,1,R18,100,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+6,1,R31,100k,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+7,2,R25 R27,10k,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+8,1,R45,13k,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+9,1,R46,15k,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+10,2,R29 R36,1k,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+11,1,R26,21k5,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+12,2,R35 R40,22k,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+13,2,R28 R137,30,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+14,1,R44,430k,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+15,1,R47,5k1,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+16,1,R43,820,R_0805_2012Metric,Resistor SMD 0805 1 %,,
+17,4,R19 R22 R23 R32,470k,R_1206_3216Metric,Resistor SMD 1206 1 % 200 V,,
+18,3,C9 C18 C22,100n,C_0805_2012Metric,Capacitor cerâmico SMD 0805 X7R,,sugerido
+19,2,C6 C23,10n,C_0805_2012Metric,Capacitor cerâmico SMD 0805 X7R,,sugerido
+20,4,C8 C13 C15 C19,1n,C_0805_2012Metric,Capacitor cerâmico SMD 0805 X7R,,sugerido
+21,1,C20,1n,C_0805_2012Metric,Capacitor cerâmico SMD 0805 C0G,,
+22,2,C7 C24,1u,C_0805_2012Metric,Capacitor cerâmico SMD 0805 X7R,,sugerido
+23,1,C17,2u2,C_0805_2012Metric,Capacitor cerâmico SMD 0805 X7R,,sugerido
+24,1,C10,470n,C_0805_2012Metric,Capacitor cerâmico SMD 0805 X7R,,sugerido
+25,2,C5 C21,470p,C_0805_2012Metric,Capacitor cerâmico SMD 0805 C0G,,sugerido
+26,1,C16,10u/50V,CP_Elec_5x5.4,Capacitor eletrolítico SMD 5x5.4 mm,,
+27,1,C14,33u/50V,CP_Elec_6.3x5.4,Capacitor eletrolítico SMD 6.3x5.4 mm,,
+28,1,J1,PSH-BUS,PinHeader_1x10_P2.54mm_Horizontal,"Barra de pinos 1×10, 2,54 mm, 90° (encaixe na placa de potência)",,
+29,1,JP1,RAMP2-ILIMIT,SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm,Liga RAMP2 ao sensor (modo corrente). Novo no REV 1.0 — ver README,,REV 1.0
+30,8,TP1 TP2 TP3 TP4 TP5 TP6 TP7 TP8,—,TestPoint_Pad_D1.5mm,"Ponto de teste SMD Ø1,5 mm",,REV 1.0
