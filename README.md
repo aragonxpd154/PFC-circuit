@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/banner.png" alt="PFC-circuit — placa de controle PFC/PWM com CM6800G" width="100%">
+  <img src="docs/images/banner.png" alt="PFC-circuit  placa de controle PFC/PWM com CM6800G" width="100%">
 </p>
 
 <p align="center">
@@ -13,7 +13,7 @@
 
 <p align="center">
   <b>Controle de correção de fator de potência (PFC) + conversor PWM em uma placa-filha de 50 × 36 mm.</b><br>
-  Engenharia reversa de uma fonte ATX, remodelada como projeto KiCad completo — esquemático, PCB roteada,<br>
+  Engenharia reversa de uma fonte ATX, remodelada como projeto KiCad completo  esquemático, PCB roteada,<br>
   modelo 3D com componentes reais, arquivos de fábrica, simulações SPICE e uma bancada de testes dedicada.
 </p>
 
@@ -38,8 +38,8 @@
 ## Visão geral
 
 Fontes de PC com PFC ativo costumam concentrar todo o controle em uma pequena placa vertical encaixada na placa de
-potência. Este repositório parte da **PSH CARD1 REV 0.5** — uma dessas placas, levantada por engenharia reversa a partir
-da peça física — e a transforma em um projeto de hardware aberto, reprodutível e documentado.
+potência. Este repositório parte da **PSH CARD1 REV 0.5**  uma dessas placas, levantada por engenharia reversa a partir
+da peça física  e a transforma em um projeto de hardware aberto, reprodutível e documentado.
 
 | Original (REV 0.5) | Remodelado (REV 1.0) |
 |:---:|:---:|
@@ -54,7 +54,7 @@ da peça física — e a transforma em um projeto de hardware aberto, reprodutí
 |---|---|---|
 | ⚡ | Esquemático KiCad organizado em blocos funcionais, com netlist verificado automaticamente contra a fonte de verdade | [`hardware/psh-card1`](hardware/psh-card1) |
 | 🟩 | PCB 50 × 36 mm, 2 camadas, roteada, planos de GND nas duas faces, **DRC 0** | [`psh-card1.kicad_pcb`](hardware/psh-card1/psh-card1.kicad_pcb) |
-| 🧪 | **PSH-JIG1** — placa de bancada para energizar e testar a PSH-CARD1 em 12–15 V, sem rede elétrica | [`hardware/psh-jig1`](hardware/psh-jig1) |
+| 🧪 | **PSH-JIG1**  placa de bancada para energizar e testar a PSH-CARD1 em 12–15 V, sem rede elétrica | [`hardware/psh-jig1`](hardware/psh-jig1) |
 | 🏭 | Gerbers X2, furação, BOM, pick-and-place, STEP, PDFs de esquemático e montagem | [`hardware/*/fab`](hardware/psh-card1/fab) |
 | 🧊 | Modelos 3D (STEP/GLB/STL) e visualizador interativo three.js | [`docs/3d`](docs/3d) |
 | 📈 | Cinco simulações ngspice dos sub-circuitos reais da placa, com gráficos | [`simulation`](simulation) |
@@ -78,7 +78,7 @@ Valores calculados por [`pfc_calc.py`](tools/pfc_calc.py) e confirmados nas [sim
 | Soft-start do PWM | **1,15 s** até 0,7 V | 20 µA em C14 = 33 µF |
 | Limite de corrente do PWM | **1,0 V** em DC ILIMIT (2,1 A com shunt de 0,47 Ω) | ciclo a ciclo |
 | Compensação de rampa | **+114 mV** no pico (simulado: +109 mV) | Q4 · R35 · C15 · R40 |
-| Gate — subida / descida (Ciss 2,2 nF) | **184 ns / 56 ns** | 30 Ω ∥ LL4148 |
+| Gate  subida / descida (Ciss 2,2 nF) | **184 ns / 56 ns** | 30 Ω ∥ LL4148 |
 
 ---
 
@@ -86,7 +86,7 @@ Valores calculados por [`pfc_calc.py`](tools/pfc_calc.py) e confirmados nas [sim
 
 ```mermaid
 flowchart LR
-  subgraph MB["Placa de potência — fonte ATX"]
+  subgraph MB["Placa de potência  fonte ATX"]
     direction TB
     AC["Ponte retificadora<br/>VAC_RECT"]
     BOOST["Boost PFC<br/>MOSFET + shunt"]
@@ -121,11 +121,11 @@ flowchart LR
 
 O **CM6800G** (Champion, pino a pino compatível com ML4800/FAN4800) reúne dois controladores sincronizados no mesmo
 oscilador: um **PFC boost de corrente média com modulação na borda de subida** e um **PWM com modulação na borda de
-descida**. Essa defasagem entre as bordas reduz a ondulação de corrente no capacitor do barramento — o PWM tende a
+descida**. Essa defasagem entre as bordas reduz a ondulação de corrente no capacitor do barramento  o PWM tende a
 drenar energia enquanto o PFC a entrega.
 
 <p align="center"><img src="docs/images/psh-card1-schematic.png" alt="Esquemático da PSH-CARD1" width="100%"></p>
-<p align="center"><sub>Esquemático completo em blocos funcionais — <a href="docs/images/psh-card1-schematic.svg">SVG vetorial</a> · <a href="hardware/psh-card1/fab/psh-card1-schematic.pdf">PDF</a></sub></p>
+<p align="center"><sub>Esquemático completo em blocos funcionais  <a href="docs/images/psh-card1-schematic.svg">SVG vetorial</a> · <a href="hardware/psh-card1/fab/psh-card1-schematic.pdf">PDF</a></sub></p>
 
 ---
 
@@ -149,10 +149,10 @@ $$f_{osc} = \frac{1}{t_{RAMP}+t_{DT}} \approx 83{,}9\ \text{kHz}$$
 
 A linha retificada (`VAC_RECT`, J1.4) alimenta dois ramos:
 
-- **IAC** — R32 + R23 = 940 kΩ convertem a forma de onda da linha em corrente (135 µA de pico @ 90 Vac): é o *formato* da
+- **IAC**  R32 + R23 = 940 kΩ convertem a forma de onda da linha em corrente (135 µA de pico @ 90 Vac): é o *formato* da
   corrente que o PFC vai copiar.
-- **VRMS** — R19 + R22 (940 kΩ) → R31 (100 kΩ) → R45 (13 kΩ), com dois polos de filtro (C10 e C17, ≈ 3,4 Hz e 6,3 Hz):
-  entrega o valor médio da linha, $V_{RMS} \approx 0{,}9\,V_{ac}\cdot\frac{13k}{1053k}$ — **1,00 V em 90 Vac**.
+- **VRMS**  R19 + R22 (940 kΩ) → R31 (100 kΩ) → R45 (13 kΩ), com dois polos de filtro (C10 e C17, ≈ 3,4 Hz e 6,3 Hz):
+  entrega o valor médio da linha, $V_{RMS} \approx 0{,}9\,V_{ac}\cdot\frac{13k}{1053k}$  **1,00 V em 90 Vac**.
 
 O modulador de ganho divide por $V_{RMS}^2$: a potência de entrada fica praticamente independente da tensão de linha,
 e a malha de tensão não precisa "corrigir" mudanças de rede. Os quatro resistores de 470 kΩ estão em 1206 (200 V) e
@@ -170,7 +170,7 @@ receberam classe de rede **HV** com 0,6 mm de isolação no roteamento.
 | Tensão (externa, lenta) | VEAO (16) | C23 ∥ (R44 + C22) | zero 3,7 Hz · polo 40,7 Hz |
 
 A malha de tensão é deliberadamente lenta (cruzamento abaixo da metade da frequência de linha) para não distorcer a
-corrente de entrada a 100/120 Hz. Referenciar a rede da IEAO a VREF em vez de GND é equivalente em AC — VREF é uma
+corrente de entrada a 100/120 Hz. Referenciar a rede da IEAO a VREF em vez de GND é equivalente em AC  VREF é uma
 fonte de baixa impedância, desacoplada por C7. O sensor de corrente (ISENSE) recebe a tensão **negativa** do shunt via
 filtro R18/C13 (≈ 1,6 MHz); D1 + D3 grampeiam excursões abaixo de ≈ −1,3 V.
 
@@ -178,13 +178,13 @@ filtro R18/C13 (≈ 1,6 MHz); D1 + D3 grampeiam excursões abaixo de ≈ −1,3 
 </details>
 
 <details open>
-<summary><b>4 · Seção PWM — realimentação, soft-start e limite de corrente</b></summary>
+<summary><b>4 · Seção PWM  realimentação, soft-start e limite de corrente</b></summary>
 
-- **VDC (pino 6)** — R25 (10k, de VREF) e R46 (15k) fixam **4,5 V** com o optoacoplador cortado; o transistor do opto
+- **VDC (pino 6)**  R25 (10k, de VREF) e R46 (15k) fixam **4,5 V** com o optoacoplador cortado; o transistor do opto
   (J1.2) puxa VDC para baixo e reduz a razão cíclica. R43 + C18 e C19 dão a resposta em frequência.
-- **Soft-start (pino 5)** — 20 µA carregam C14 (33 µF): o PWM começa em ≈ 0,7 V, **1,15 s** depois de o barramento passar
+- **Soft-start (pino 5)**  20 µA carregam C14 (33 µF): o PWM começa em ≈ 0,7 V, **1,15 s** depois de o barramento passar
   por 2,45 V em VFB (VIN-OK). O conversor DC-DC só parte com o PFC já regulado.
-- **DC ILIMIT (pino 9)** — limite ciclo a ciclo em 1,0 V, com filtro/blanking R29 + C21.
+- **DC ILIMIT (pino 9)**  limite ciclo a ciclo em 1,0 V, com filtro/blanking R29 + C21.
 
 **Compensação de rampa (slope compensation).** Em modo corrente com razão cíclica alta, o laço é instável sem uma rampa
 somada ao sinal do sensor (oscilação subharmônica). A placa resolve isso com quatro componentes discretos:
@@ -225,14 +225,14 @@ perda de comutação no desligamento). D4 grampeia o *undershoot* negativo em PF
 
 ## Interface PSH-BUS (J1)
 
-Barra de pinos 1 × 10, 2,54 mm, em ângulo reto — a placa fica em pé sobre a placa de potência.
+Barra de pinos 1 × 10, 2,54 mm, em ângulo reto  a placa fica em pé sobre a placa de potência.
 
 | Pino | Rede | Direção | Descrição |
 |:---:|---|:---:|---|
 | 1 | `PFC_CS` | ← | Sensor de corrente do PFC (shunt, tensão negativa) |
 | 2 | `VDC` | ← | Realimentação do PWM (coletor do optoacoplador) |
-| 3 | — | | **Sem conexão** — distância de isolação para o pino 4 |
-| 4 | `VAC_RECT` | ← | Linha retificada (IAC/VRMS) — ⚠️ **alta tensão** |
+| 3 |  | | **Sem conexão**  distância de isolação para o pino 4 |
+| 4 | `VAC_RECT` | ← | Linha retificada (IAC/VRMS)  ⚠️ **alta tensão** |
 | 5 | `VCC` | ← | Alimentação 12–15 V vinda do standby |
 | 6 | `VFB` | ← | Topo do divisor do barramento de 380 V |
 | 7 | `PFC_GATE` | → | Gate do MOSFET boost |
@@ -244,14 +244,14 @@ Barra de pinos 1 × 10, 2,54 mm, em ângulo reto — a placa fica em pé sobre a
 
 ## As placas
 
-### PSH-CARD1 — controlador
+### PSH-CARD1  controlador
 
 <table>
 <tr>
 <td width="50%"><img src="docs/images/psh-card1-top.png"></td>
 <td width="50%"><img src="docs/images/psh-card1-bottom.png"></td>
 </tr>
-<tr><td align="center"><sub>Face superior (todos os SMD)</sub></td><td align="center"><sub>Face inferior — identificação e pinagem de J1</sub></td></tr>
+<tr><td align="center"><sub>Face superior (todos os SMD)</sub></td><td align="center"><sub>Face inferior  identificação e pinagem de J1</sub></td></tr>
 <tr>
 <td><img src="docs/images/psh-card1-3d.png"></td>
 <td><img src="docs/images/psh-card1-layers.png"></td>
@@ -273,14 +273,14 @@ Barra de pinos 1 × 10, 2,54 mm, em ângulo reto — a placa fica em pé sobre a
 
 | Item | REV 0.5 (original) | REV 1.0 (este repositório) |
 |---|---|---|
-| RAMP2 (pino 8) | desenhado em aberto | **JP1** (jumper de solda, fechado) liga RAMP2 a ILIMIT — modo corrente, como na aplicação típica do datasheet |
+| RAMP2 (pino 8) | desenhado em aberto | **JP1** (jumper de solda, fechado) liga RAMP2 a ILIMIT  modo corrente, como na aplicação típica do datasheet |
 | Pontos de teste | nenhum | **TP1–TP8**: VREF, VCC, GND, RAMP1, SS, VEAO, IEAO, VRMS |
-| Resistores de alta tensão | — | 470 kΩ em 1206 (200 V) + classe `HV` no roteamento |
+| Resistores de alta tensão |  | 470 kΩ em 1206 (200 V) + classe `HV` no roteamento |
 | CI | soldado em soquete | soquete torneado DIP-16 + modelo 3D do CI encaixado |
-| Capacitores sem valor legível | — | valores **sugeridos** e justificados (ver abaixo) |
+| Capacitores sem valor legível |  | valores **sugeridos** e justificados (ver abaixo) |
 
 <details>
-<summary><b>Valores sugeridos</b> — capacitores sem valor legível no esquemático original</summary>
+<summary><b>Valores sugeridos</b>  capacitores sem valor legível no esquemático original</summary>
 
 | Ref. | Valor | Critério |
 |---|---|---|
@@ -288,7 +288,7 @@ Barra de pinos 1 × 10, 2,54 mm, em ângulo reto — a placa fica em pé sobre a
 | C7 | 1 µF | desacoplamento de VREF |
 | C8 | 1 nF | filtro de ruído em VFB (polo ≈ 31 kHz com 5k1) |
 | C9 / C24 | 100 nF / 1 µF | desacoplamento de VCC junto ao CI |
-| C10 / C17 | 470 nF / 2,2 µF | filtro de 2 polos do VRMS (3,4 Hz / 6,3 Hz) — ondulação < 6 mV |
+| C10 / C17 | 470 nF / 2,2 µF | filtro de 2 polos do VRMS (3,4 Hz / 6,3 Hz)  ondulação < 6 mV |
 | C13 | 1 nF | filtro de ISENSE (1,6 MHz com 100 Ω) |
 | C15 | 1 nF | τ = 22 µs ≫ período → rampa praticamente linear |
 | C18 / C19 | 100 nF / 1 nF | rede de VDC (zero em 1,9 kHz) |
@@ -296,10 +296,10 @@ Barra de pinos 1 × 10, 2,54 mm, em ângulo reto — a placa fica em pé sobre a
 | C22 / C23 | 100 nF / 10 nF | zero da malha de tensão em 3,7 Hz, polo em 41 Hz |
 
 Todos esses valores ficam marcados com `Nota = sugerido` no esquemático e na BOM. Se você tiver a placa original,
-meça-os e atualize [`designs.py`](tools/eda/designs.py) — o pipeline regenera tudo.
+meça-os e atualize [`designs.py`](tools/eda/designs.py)  o pipeline regenera tudo.
 </details>
 
-### PSH-JIG1 — bancada de testes
+### PSH-JIG1  bancada de testes
 
 <table>
 <tr>
@@ -318,7 +318,7 @@ potência e sem tensão de rede:
 | Emulação do opto | R4, **RV2** | puxa VDC para baixo → controla a razão cíclica do PWM |
 | Injeção de corrente | R5 + J3, R6 + J4 | gerador de funções em PFC_CS / PWM_CS (10 Ω de terminação) |
 | Cargas de gate | R9/C3, R10/C4 | 10 Ω + 4,7 nF ≈ MOSFET de potência real |
-| Linha (opcional) | J5 | VAC_RECT — **somente fonte DC isolada e limitada** |
+| Linha (opcional) | J5 | VAC_RECT  **somente fonte DC isolada e limitada** |
 | Medição | TP1–TP8 (Keystone) | ganchos para ponta de prova em todos os sinais relevantes |
 
 > [!TIP]
@@ -352,7 +352,7 @@ O arquivo "por referência" lista a função de cada componente e suas conexões
 | Java | 17+ | Freerouting (só para **re-rotear**) |
 | Node.js | 18+ | visualizador 3D (opcional) |
 
-Testado em **Ubuntu 24.04** (KiCad 7.0.11). Em **Zorin OS 17** / Ubuntu 22.04 o repositório padrão traz o KiCad 6 —
+Testado em **Ubuntu 24.04** (KiCad 7.0.11). Em **Zorin OS 17** / Ubuntu 22.04 o repositório padrão traz o KiCad 6 
 instale o 7 pelo PPA oficial antes do `make setup` (`sudo add-apt-repository ppa:kicad/kicad-7.0-releases`).
 No Windows, use o WSL2, ou o KiCad nativo + o Python que acompanha o KiCad (que já traz o módulo `pcbnew`).
 
@@ -453,7 +453,7 @@ make render         # imagens e modelos 3D (opcional)
 ```
 
 > [!NOTE]
-> Prefere editar à mão no KiCad? Tudo bem — os arquivos `.kicad_sch`/`.kicad_pcb` são projetos KiCad normais.
+> Prefere editar à mão no KiCad? Tudo bem  os arquivos `.kicad_sch`/`.kicad_pcb` são projetos KiCad normais.
 > Só lembre que rodar `make sch`/`make pcb` depois sobrescreve as edições manuais.
 
 ### 7 · Fabricar as placas
@@ -470,7 +470,7 @@ Os pacotes prontos estão em `hardware/<placa>/fab/`:
 1. Componentes baixos primeiro: resistores e capacitores 0805, depois 1206, MiniMELF e SOT-23 (Q4).
 2. Confira a **polaridade dos diodos** (faixa = catodo) e dos eletrolíticos pelo desenho de montagem
    [`psh-card1-assembly.pdf`](hardware/psh-card1/fab/psh-card1-assembly.pdf).
-3. Eletrolíticos C14 e C16 (o "+" da serigrafia). JP1 já vem fechado pelo próprio cobre — não corte.
+3. Eletrolíticos C14 e C16 (o "+" da serigrafia). JP1 já vem fechado pelo próprio cobre  não corte.
 4. Soquete DIP-16 (chanfro do lado do pino 1) e por último a barra de pinos 90° J1.
 5. Antes de inserir o CM6800G: meça a resistência VCC–GND (> 1 kΩ) e a continuidade de cada pino de J1.
 
@@ -481,25 +481,25 @@ Encaixe a PSH-CARD1 no soquete J1 da jig. Fonte de bancada **15 V, limite de 50 
 | # | Ação | Medir em | Esperado |
 |:---:|---|---|---|
 | 1 | Ligar 15 V em J2 | TP3 (jig) | ≈ 14,6 V (queda do SS34) · consumo de algumas dezenas de mA · LED aceso |
-| 2 | — | TP1 da card (VREF) | 7,5 V |
-| 3 | — | TP4 da card (RAMP1) | dente de serra 1,25 → 3,75 V, ≈ 84 kHz |
-| 4 | RV1 até **2,50 V** | TP4 da jig (VFB) | 2,50 V — barramento "regulado" |
+| 2 |  | TP1 da card (VREF) | 7,5 V |
+| 3 |  | TP4 da card (RAMP1) | dente de serra 1,25 → 3,75 V, ≈ 84 kHz |
+| 4 | RV1 até **2,50 V** | TP4 da jig (VFB) | 2,50 V  barramento "regulado" |
 | 5 | Aguardar ≈ 1 s | TP5 da card (SS) | rampa lenta a partir de 0 V |
-| 6 | — | TP7 da jig (PWM_G) | pulsos de 84 kHz, razão cíclica < 50 % |
+| 6 |  | TP7 da jig (PWM_G) | pulsos de 84 kHz, razão cíclica < 50 % |
 | 7 | Girar RV2 | TP7 da jig | razão cíclica diminui quando VDC desce |
-| 8 | RV1 acima de **2,75 V** | TP7 da jig (PWM_G) | PWM continua — a OVP atua só na seção PFC |
+| 8 | RV1 acima de **2,75 V** | TP7 da jig (PWM_G) | PWM continua  a OVP atua só na seção PFC |
 | 9 | RV1 abaixo de **2,45 V** | TP7 da jig | PWM inibido (VIN-OK) |
 | 10 | Pulso > 1 V em J4 | TP7 da jig | ciclo encerrado; soft-start descarrega |
 | 11 | Comparar bordas | TP6 / TP7 | subida ≈ 180 ns, descida ≈ 60 ns ([simulação](docs/images/sim-gate.png)) |
 
 > [!NOTE]
 > Sem sinal em VAC_RECT, a seção PFC não tem referência de corrente (IAC = 0 e VRMS ≈ 0). A forma de onda em PFC_GATE
-> nessa condição depende das proteções internas do CI — a validação principal do PFC acontece na placa de potência.
+> nessa condição depende das proteções internas do CI  a validação principal do PFC acontece na placa de potência.
 
 ### 10 · Integração na fonte
 
 > [!CAUTION]
-> **A placa de potência opera com tensão de rede e com ~400 V DC no capacitor do barramento — risco de morte.**
+> **A placa de potência opera com tensão de rede e com ~400 V DC no capacitor do barramento  risco de morte.**
 > O pino 4 de J1 está ligado diretamente à linha retificada. Use **transformador isolador** e **variac**, uma lâmpada
 > incandescente em série na primeira energização, ponta de prova diferencial (nunca aterre o osciloscópio no primário)
 > e **descarregue o capacitor do barramento** antes de tocar em qualquer coisa. Se você não tem experiência com
@@ -555,7 +555,7 @@ Por ser uma reconstrução a partir de engenharia reversa, alguns pontos merecem
   os capacitores com valor legível (C14, C16, C20) foram mantidos exatamente.
 - **RAMP2 (pino 8)** aparece em aberto no esquemático original. O REV 1.0 o liga a ILIMIT por JP1 (modo corrente);
   abrir JP1 reproduz o desenho original.
-- **Q4** foi interpretado como seguidor de emissor (coletor em VCC, base na rampa de C15, emissor em R40) — é a única
+- **Q4** foi interpretado como seguidor de emissor (coletor em VCC, base na rampa de C15, emissor em R40)  é a única
   ligação que forma um gerador de compensação de rampa coerente com D2/R36/R35/C15.
 - **Pino 3 de J1** não tem conexão no desenho; a interpretação adotada é a de distância de isolação para o pino de alta
   tensão.
@@ -566,19 +566,19 @@ Por ser uma reconstrução a partir de engenharia reversa, alguns pontos merecem
 
 ## Referências
 
-- Champion Microelectronic — *CM6800 / CM6800A: Low start-up current PFC/PWM controller combo* (datasheet;
+- Champion Microelectronic  *CM6800 / CM6800A: Low start-up current PFC/PWM controller combo* (datasheet;
   pinagem, equações do oscilador, soft-start, VIN-OK e DC ILIMIT).
-- [KiCad EDA](https://www.kicad.org) 7 — esquemático, PCB, `kicad-cli` e bibliotecas oficiais de footprints e modelos 3D.
-- [Freerouting](https://github.com/freerouting/freerouting) — autoroteador Specctra.
-- [ngspice](https://ngspice.sourceforge.io) — simulação de circuitos.
+- [KiCad EDA](https://www.kicad.org) 7  esquemático, PCB, `kicad-cli` e bibliotecas oficiais de footprints e modelos 3D.
+- [Freerouting](https://github.com/freerouting/freerouting)  autoroteador Specctra.
+- [ngspice](https://ngspice.sourceforge.io)  simulação de circuitos.
 - [gerbonara](https://pypi.org/project/gerbonara/) · [OCP / OpenCascade](https://github.com/CadQuery/OCP) ·
-  [three.js](https://threejs.org) — renderização e modelos 3D.
+  [three.js](https://threejs.org)  renderização e modelos 3D.
 
 ---
 
 ## Licença
 
-Distribuído sob a **GNU GPL v3.0** — veja [`LICENSE`](LICENSE). Hardware fornecido "como está", sem garantias; o uso
+Distribuído sob a **GNU GPL v3.0**  veja [`LICENSE`](LICENSE). Hardware fornecido "como está", sem garantias; o uso
 com tensão de rede é de inteira responsabilidade de quem o monta.
 
 <p align="center">
